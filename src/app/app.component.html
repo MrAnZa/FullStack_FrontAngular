@@ -15,7 +15,7 @@
         <a class="nav-link" href="#">Categorias</a>
       </li>
     </ul>
-    <ul class="navbar-nav navbar-right">
+    <ul class="navbar-nav navbar-right" *ngIf="!identity">
       <li class="nav-item">
         <a class="nav-link" [routerLink]="['/login']">Identificarse</a>
       </li>
@@ -23,10 +23,10 @@
         <a class="nav-link" [routerLink]="['/registro']">Registrate</a>
       </li>
     </ul>
-    <ul class="navbar-nav navbar-right">
+    <ul class="navbar-nav navbar-right" *ngIf="identity && identity.name">
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Usuario
+          {{identity.name + ' ' + identity.surname}}
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
           <a class="dropdown-item" href="#">Crear Entrada</a>
