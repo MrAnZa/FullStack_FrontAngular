@@ -45,10 +45,14 @@
         </div>
         <div class="form-group">
             <label for="image">Avatar</label>
+            <div *ngIf= "identity && identity.image">
+                <img src="{{url + 'user/avatar/'+identity.image}}" class="avataredit">
+            </div>
             <angular-file-uploader [config]="afuConfig" [resetUpload]=resetVar
             (ApiResponse)="avatarUpload($event)"></angular-file-uploader>
         </div>
 
         <input type="submit" value="Guardar Cambios" class="btn btn-success" [disabled]="userEditForm.invalid" />
     </form>
+    <br>
 </div>

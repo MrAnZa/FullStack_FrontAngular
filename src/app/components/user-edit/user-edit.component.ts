@@ -14,6 +14,7 @@ export class UserEditComponent implements OnInit {
   public identity;
   public token;
   public status:string;
+  public url;
 
   public froala_options: Object= {
     charCounterCount: true,
@@ -55,6 +56,7 @@ export class UserEditComponent implements OnInit {
       this.identity.email,'',
       this.identity.description,
       this.identity.image);
+    this.url=global.url;
   }
 
   ngOnInit() {
@@ -81,7 +83,7 @@ export class UserEditComponent implements OnInit {
             this.user.image=response.changes.image;
           }
           //Sesion
-          this.identity=response.user;
+          this.identity=response.changes;
           //Local
           localStorage.setItem('identity',JSON.stringify(this.identity));
         }else{
