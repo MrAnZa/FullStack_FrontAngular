@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from 'src/app/models/user';
 import { UserService } from 'src/app/services/user.service';
-
+import {global} from '../../services/global';
 @Component({
   selector: 'app-user-edit',
   templateUrl: './user-edit.component.html',
@@ -15,6 +15,30 @@ export class UserEditComponent implements OnInit {
   public token;
   public status:string;
 
+  public froala_options: Object= {
+    charCounterCount: true,
+    toolbarButtons: ['bold','italic','underline','paragraphFormat','alert'],
+    toolbarButtonsXS: ['bold','italic','underline','paragraphFormat','alert'],
+    toolbarButtonsSM: ['bold','italic','underline','paragraphFormat','alert'],
+    toolbarButtonsMD: ['bold','italic','underline','paragraphFormat','alert'],
+  };
+
+  public afuConfig = {
+    multiple: false,
+    formatsAllowed: ".jpg,.png,.gif,.jpeg",
+    maxSize: "1",
+    uploadAPI:  {
+      url: global.url+'user/upload',
+      headers: {
+     "Authorization" : this._userService.getToken()
+      }
+    },
+    theme: 'attachPin',
+    hideProgressBar: false,
+    hideResetBtn: true,
+    hideSelectBtn: false,
+    attachPinText: 'Sube tu Avatar de usuario'
+};
   constructor(
     private _userService: UserService
   ) { 
@@ -39,7 +63,7 @@ export class UserEditComponent implements OnInit {
     this._userService.update(this.token,this.user).subscribe(
       response => {
         console.log(response);
-        if(response){
+        if(response && response.status){
           this.status='success';
           if(response.changes.name){
             this.user.name=response.changes.name;
@@ -72,5 +96,9 @@ export class UserEditComponent implements OnInit {
     )
 
   }
-
+  avatarUpload(datos){
+  let data=JSON.parse(datos.response);
+  this.user.image=data.image;
+  
+  }
 }
