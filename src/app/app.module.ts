@@ -12,6 +12,7 @@ import { RegistroComponent } from './components/registro/registro.component';
 import { HomeComponent } from './components/home/home.component';
 import { ErrorComponent } from './components/error/error.component';
 import { UserEditComponent } from './components/user-edit/user-edit.component';
+import { CategoryNewComponent } from './components/category-new/category-new.component';
 
 
 @NgModule({
@@ -22,6 +23,7 @@ import { UserEditComponent } from './components/user-edit/user-edit.component';
     HomeComponent,
     ErrorComponent,
     UserEditComponent,
+    CategoryNewComponent,
   ],
   imports: [
     BrowserModule,
