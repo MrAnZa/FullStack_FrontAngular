@@ -15,6 +15,14 @@ public page_title:string;
 public identity;
 public token;
 public post:Post;
+public froala_options: Object= {
+  charCounterCount: true,
+  toolbarButtons: ['bold','italic','underline','paragraphFormat','alert'],
+  toolbarButtonsXS: ['bold','italic','underline','paragraphFormat','alert'],
+  toolbarButtonsSM: ['bold','italic','underline','paragraphFormat','alert'],
+  toolbarButtonsMD: ['bold','italic','underline','paragraphFormat','alert'],
+};
+
   constructor(
     private _route:ActivatedRoute,
     private _userService: UserService,
