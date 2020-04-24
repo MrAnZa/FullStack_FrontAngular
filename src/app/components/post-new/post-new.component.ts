@@ -3,6 +3,7 @@ import { Router,ActivatedRoute,Params } from '@angular/router';
 import { UserService } from '../../services/user.service';
 import { CategoryService } from '../../services/category.service';
 import { Post } from '../../models/post';
+import {global} from '../../services/global';
 
 @Component({
   selector: 'app-post-new',
@@ -23,6 +24,23 @@ public froala_options: Object= {
   toolbarButtonsXS: ['bold','italic','underline','paragraphFormat','alert'],
   toolbarButtonsSM: ['bold','italic','underline','paragraphFormat','alert'],
   toolbarButtonsMD: ['bold','italic','underline','paragraphFormat','alert'],
+};
+
+public afuConfig = {
+  multiple: false,
+  formatsAllowed: ".jpg,.png,.gif,.jpeg",
+  maxSize: "1",
+  uploadAPI:  {
+    url: global.url+'post/upload',
+    headers: {
+   "Authorization" : this._userService.getToken()
+    }
+  },
+  theme: 'attachPin',
+  hideProgressBar: false,
+  hideResetBtn: true,
+  hideSelectBtn: false,
+  attachPinText: 'Sube tu Avatar de usuario'
 };
 
   constructor(
@@ -53,5 +71,9 @@ getCategories(){
   )
 }
 
+imageUpload(data){
+  let imageData=JSON.parse(data.response);
+  this.post.image=imageData.image;
 
+  }
 }
