@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router,ActivatedRoute,Params } from '@angular/router';
+import { Router } from '@angular/router';
 import { UserService } from '../../services/user.service';
 import { CategoryService } from '../../services/category.service';
 import { Post } from '../../models/post';
@@ -18,6 +18,8 @@ public identity;
 public token;
 public post:Post;
 public categories;
+public status;
+
 
 public froala_options: Object= {
   charCounterCount: true,
@@ -45,7 +47,7 @@ public afuConfig = {
 };
 
   constructor(
-    private _route:ActivatedRoute,
+    private _router: Router,
     private _userService: UserService,
     private _categoryService: CategoryService,
     private _postService:PostService
@@ -82,6 +84,17 @@ imageUpload(data){
   }
 
   onSubmit(form){
-    console.log(this.post);
+    this._postService.create(this.token,this.post).subscribe(response=>{
+      if(response.status=='success'){
+        this.post=response.post; 
+        this.status='success';
+        this._router.navigate(['/inicio']);
+      }else{
+        this.status='error';
+      }
+    },error=>{
+      console.log(error);
+      this.status='error';
+    })
   }
 }

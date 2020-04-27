@@ -16,4 +16,11 @@ export class PostService {
     pruebas(){
         return "hola desde post";
     }
+
+    create(token,post):Observable<any>{
+    let json=JSON.stringify(post);
+    let params="json="+json;
+    let headers= new HttpHeaders().set('content-Type','application/x-www-form-urlencoded').set('Authorization',token);
+    return this._http.post(this.url+'post',params,{headers:headers});
+    }
 }
