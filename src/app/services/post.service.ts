@@ -23,4 +23,8 @@ export class PostService {
     let headers= new HttpHeaders().set('content-Type','application/x-www-form-urlencoded').set('Authorization',token);
     return this._http.post(this.url+'post',params,{headers:headers});
     }
+    getPosts():Observable<any>{
+        let headers=new HttpHeaders().set('Content-Type','application/x-www-form-urlencoded');
+        return this._http.get(this.url+'post',{headers:headers});
+    }
 }
