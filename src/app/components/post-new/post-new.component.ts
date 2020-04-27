@@ -4,12 +4,13 @@ import { UserService } from '../../services/user.service';
 import { CategoryService } from '../../services/category.service';
 import { Post } from '../../models/post';
 import {global} from '../../services/global';
+import { PostService } from '../../services/post.service';
 
 @Component({
   selector: 'app-post-new',
   templateUrl: './post-new.component.html',
   styleUrls: ['./post-new.component.css'],
-  providers: [UserService,CategoryService]
+  providers: [UserService,CategoryService,PostService]
 })
 export class PostNewComponent implements OnInit {
 public page_title:string;
@@ -46,7 +47,8 @@ public afuConfig = {
   constructor(
     private _route:ActivatedRoute,
     private _userService: UserService,
-    private _categoryService: CategoryService
+    private _categoryService: CategoryService,
+    private _postService:PostService
   ) { this.page_title="Crear una Entrada"
 this.identity=this._userService.getIdentity();
 this.token=this._userService.getToken();
@@ -56,6 +58,8 @@ this.token=this._userService.getToken();
     this.getCategories(); 
     this.post=new Post(1,this.identity.sub,1,'', '',null,null);
     //console.log(this.post);
+    
+    console.log(this._postService.pruebas());
   }
 
 getCategories(){
