@@ -76,4 +76,8 @@ imageUpload(data){
   this.post.image=imageData.image;
 
   }
+
+  onSubmit(form){
+    console.log(this.post);
+  }
 }
