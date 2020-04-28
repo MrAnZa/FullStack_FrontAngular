@@ -10,9 +10,14 @@
                 </h3>
             </div>
             <div class="card-body">
-                <!--
-                    imagen
-                    botones de accion
+                <!--imagen-->
+                <div class="post-image w-100" *ngIf="post.image">
+                    <img src="{{url+'post/image/'+post.image}}" alt="" class="w-100" />
+                </div>
+                <div class="post-image w-100" *ngIf="!post.image">
+                    <img src="assets/images/default.png" alt="" class="w-100" />
+                </div>
+                <!--botones de accion
                 -->
             </div>
         </article>
