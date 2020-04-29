@@ -13,8 +13,8 @@ export class LoginComponent implements OnInit {
   public page_title: string;
   public user: User
   public status: string;
-  public token;
   public identity;
+  public token;
   constructor(
     private _userService: UserService,
     private _router: Router,
@@ -68,11 +68,12 @@ export class LoginComponent implements OnInit {
     this._route.params.subscribe(params=>{
       let logout = +params['sure'];
       if(logout==1){
-        localStorage.removeItem('identity');
         localStorage.removeItem('token');
+        localStorage.removeItem('identity');
         
         this.identity=null;
         this.token=null;
+
         this._router.navigate(['inicio']);
       }
     });

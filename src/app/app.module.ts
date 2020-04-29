@@ -14,6 +14,7 @@ import { ErrorComponent } from './components/error/error.component';
 import { UserEditComponent } from './components/user-edit/user-edit.component';
 import { CategoryNewComponent } from './components/category-new/category-new.component';
 import { PostNewComponent } from './components/post-new/post-new.component';
+import { PostDetailComponent } from './components/post-detail/post-detail.component';
 
 
 @NgModule({
@@ -26,6 +27,7 @@ import { PostNewComponent } from './components/post-new/post-new.component';
     UserEditComponent,
     CategoryNewComponent,
     PostNewComponent,
+    PostDetailComponent,
   ],
   imports: [
     BrowserModule,
