@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router,ActivatedRoute } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { UserService } from '../../services/user.service';
 import { CategoryService } from '../../services/category.service';
 import { Post } from '../../models/post';
@@ -19,7 +19,7 @@ export class PostEditComponent implements OnInit {
   public post: Post;
   public categories;
   public status;
-  public is_edit:boolean;
+  public is_edit: boolean;
 
 
   public froala_options: Object = {
@@ -54,10 +54,10 @@ export class PostEditComponent implements OnInit {
     private _categoryService: CategoryService,
     private _postService: PostService
   ) {
-  this.page_title = "Editar una Entrada"
+    this.page_title = "Editar una Entrada"
     this.identity = this._userService.getIdentity();
     this.token = this._userService.getToken();
-    this.is_edit=true;
+    this.is_edit = true;
   }
 
   ngOnInit() {
@@ -88,17 +88,17 @@ export class PostEditComponent implements OnInit {
   }
 
   onSubmit(form) {
-    this._postService.create(this.token, this.post).subscribe(response => {
-      if (response.status == 'success') {
-        this.post = response.post;
+    this._postService.update(this.token, this.post, this.post.id).subscribe(response => {
+      if (response.status = 'success') {
         this.status = 'success';
-        this._router.navigate(['/inicio']);
+        //this.post=response.post;
+        this._router.navigate(['/entrada', this.post.id]);
       } else {
         this.status = 'error';
       }
     }, error => {
-      console.log(error);
       this.status = 'error';
+
     })
   }
   getPost() {
