@@ -3,6 +3,7 @@ import { Post } from 'src/app/models/post';
 import { PostService } from '../../services/post.service';
 import { UserService } from '../../services/user.service';
 import { global } from 'src/app/services/global';
+import { CompilerConfig } from '@angular/compiler';
 
 
 @Component({
@@ -40,5 +41,12 @@ getPosts(){
       console.log(error);
     }
   )
+}
+deletePost(id){
+  this._postService.delete(this.token,id).subscribe(response=>{
+    this.getPosts();
+  },error=>{
+    console.log(error);
+  })
 }
 }
