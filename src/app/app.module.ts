@@ -16,6 +16,7 @@ import { CategoryNewComponent } from './components/category-new/category-new.com
 import { PostNewComponent } from './components/post-new/post-new.component';
 import { PostDetailComponent } from './components/post-detail/post-detail.component';
 import { PostEditComponent } from './components/post-edit/post-edit.component';
+import { CategoryDetailComponent } from './components/category-detail/category-detail.component';
 
 
 @NgModule({
@@ -30,6 +31,7 @@ import { PostEditComponent } from './components/post-edit/post-edit.component';
     PostNewComponent,
     PostDetailComponent,
     PostEditComponent,
+    CategoryDetailComponent,
   ],
   imports: [
     BrowserModule,
