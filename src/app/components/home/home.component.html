@@ -24,7 +24,7 @@
                     <a [routerLink]="['/editar-entrada',post.id]" class="btn btn-warning mr-2">Editar</a>
                    
                 <!-- Trigger the modal with a button -->
-                    <button type="button" class="btn btn-info" data-toggle="modal" [attr.data-target]="'#myModal'+post.id">Borrar</button>
+                    <button type="button" class="btn btn-danger" data-toggle="modal" [attr.data-target]="'#myModal'+post.id">Borrar</button>
 
                         <!-- Modal -->
                         <div id="{{'myModal'+post.id}}" class="modal fade" role="dialog">
