@@ -36,6 +36,16 @@ this.getPostsByCategory();
         if(response.status='success'){
           this.category=response.category;
           this.page_title=this.category.name;
+          this._categoryService.getPostsByCategory(id).subscribe(response=>{
+            if(response.status="success"){
+              this.posts=response.posts;
+            }else{
+
+            }
+            
+          },error=>{
+            console.log(error);
+          })
         }else{
           this._router.navigate(['/inicio']);
         }
