@@ -17,6 +17,8 @@ import { PostNewComponent } from './components/post-new/post-new.component';
 import { PostDetailComponent } from './components/post-detail/post-detail.component';
 import { PostEditComponent } from './components/post-edit/post-edit.component';
 import { CategoryDetailComponent } from './components/category-detail/category-detail.component';
+import { UserService } from './services/user.service';
+import { IdentityGuard } from './services/identity.guards';
 
 
 @NgModule({
@@ -44,7 +46,9 @@ import { CategoryDetailComponent } from './components/category-detail/category-d
 
   ],
   providers: [
-    appRoutingProviders
+    appRoutingProviders,
+    UserService,
+    IdentityGuard
   ],
   bootstrap: [AppComponent]
 })
