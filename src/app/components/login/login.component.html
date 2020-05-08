@@ -3,6 +3,7 @@
     <p>
         Identificate en la plataforma para comenzar!!
     </p>
+
     <form class="col-md-5 ml-0 pl-0" #loginForm="ngForm" (ngSubmit)="onSubmit(loginForm)">
         <div class="form-group">
             <label for="email">Email</label>
@@ -18,6 +19,9 @@
                 La Contraseña no es valido
             </small>
         </div>
-        <input type="submit" value="Identificarse" class="btn btn-success" [disabled]="loginForm.invalid"/>
-     </form>
+        <input type="submit" value="Identificarse" class="btn btn-success" [disabled]="loginForm.invalid" />
+    </form>
+    <div class="alert alert-danger col-md-5 mt-3" *ngIf="status == 'error'">
+        Usuario Y/O Contraseña Incorrectos
+    </div>
 </div>

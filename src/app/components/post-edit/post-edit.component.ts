@@ -44,7 +44,7 @@ export class PostEditComponent implements OnInit {
     hideProgressBar: false,
     hideResetBtn: true,
     hideSelectBtn: false,
-    attachPinText: 'Sube tu Avatar de usuario'
+    attachPinText: 'Imagen de la Entrada'
   };
 
   constructor(

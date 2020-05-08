@@ -37,6 +37,8 @@ export class UserService{
         return this._http.post(this.url+'login',params,{headers:headers});
     }
     update(token,user):Observable<any>{
+        //limpia campo description(editor de texto enriquecido) htmlEntities => utf-8
+        user.description = global.htmlEntities(user.description);
         let json = JSON.stringify(user);
         let params = "json="+json;
 
