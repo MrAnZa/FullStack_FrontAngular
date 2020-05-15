@@ -39,9 +39,9 @@
                         <a class="dropdown-item" [routerLink]="['/crear-entrada']">Crear Entrada</a>
                         <a class="dropdown-item" [routerLink]="['/crear-categoria']">Crear categoria</a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="#">Mi Perfil</a>
-                        <a class="dropdown-item" [routerLink]="['/ajustes']">Ajustes</a>
-                        <a class="dropdown-item" [routerLink]="['/logout/1']">Cerrar Sesion</a>
+                        <a class="dropdown-item" [routerLink]="['/perfil' ,identity.sub]">Mi Perfil</a>
+                        <a class="dropdown-item " [routerLink]="[ '/ajustes'] ">Ajustes</a>
+                        <a class="dropdown-item " [routerLink]="[ '/logout/1'] ">Cerrar Sesion</a>
                     </div>
                 </li>
             </ul>
