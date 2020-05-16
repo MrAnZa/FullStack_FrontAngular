@@ -74,7 +74,7 @@ export class LoginComponent implements OnInit {
         this.identity=null;
         this.token=null;
 
-        this._router.navigate(['inicio']);
+        this._router.navigate(['/inicio']);
       }
     });
   }

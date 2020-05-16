@@ -16,7 +16,7 @@ export class AppComponent implements OnInit, DoCheck {
   public token;
   public url;
   public categories;
-
+  public  i=0;
   constructor(
     private _userService: UserService,
     private _categoryService: CategoryService
@@ -32,6 +32,7 @@ export class AppComponent implements OnInit, DoCheck {
 
   ngDoCheck() {
     this.loadUser();
+    console.log("HijuePuta "+(this.i++));
   }
 
   loadUser() {
